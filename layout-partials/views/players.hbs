@@ -1,0 +1,10 @@
+<div class="container players">
+    <h1>Estos son los jugadores de la NBA</h1>
+
+    <div class="row">
+
+        {{#each playersToShow}}
+        {{>playerCard this}}
+        {{/each}}
+    </div>
+</div>

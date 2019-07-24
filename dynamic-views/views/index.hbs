@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>My first view</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <h1>¡Bienvenid@ a {{place}}, {{name}}</h1>
+    <p>Da el 200% en tu {{course}}</p>
+
+    <hr>
+
+    {{#if warning}}
+    <small><strong>Aviso:</strong> {{{warning}}}</small>
+    {{else}}
+    <small>Ningún aviso vigente</small>
+    {{/if}}
+
+    <hr>
+
+    {{#unless paid}}
+    <p>Matrícula pendiente de pago</p>
+    {{/unless}}
+
+
+    <hr>
+
+    <h2>Los módulos de tu curso son:</h2>
+    <ul>
+        {{#each modules}}
+        <li>{{@index}}: {{this}}</li>
+        {{else}}
+        <li>Información no disponible aún</li>
+        {{/each}}
+
+        <!--
+        {{#each modules}}
+        {{#if @first}}
+        <li>Primero: {{this}}</li>
+        {{else if @last}}
+        <li>Último: {{this}}</li>
+        {{else}}
+        <li>{{@index}}: {{this}}</li>
+        {{/if}}
+        {{else}}
+        <li>Información no disponible aún</li>
+        {{/each}}
+
+        -->
+    </ul>
+
+    <hr>
+
+    <h2>Dirección de facturación</h2>
+    {{#each address}}
+    <p>{{@key}}: {{this}}</p>
+    {{/each}}
+
+
+    <hr>
+
+    <h2>Trabajo actual</h2>
+    {{#with actualJob}}
+    <p>Puesto: {{title}}</p>
+    <p>Salario: {{salary}}€/mes</p>
+    <p>Antigüedad: {{seniority}} años</p>
+    {{/with}}
+
+
+</body>
+
+</html>
